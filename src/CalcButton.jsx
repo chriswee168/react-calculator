@@ -5,20 +5,24 @@ import styles from "./CalcButton.module.css";
  * 
  * @param {Object} props
  * @param {string} props.calcLabel Label for this button.
- * @param {number} props.posY Button Y position.
- * @param {number} props.posX Button X position.
+ * @param {Array<string>} props.borderRadii Indicate radius of corners.
  * @param {string} props.equationState String containing equation.
  * @param {Dispatch<SetStateAction<string>} props.updateEquation Function to update equation string.
  * @returns 
  */
-export function CalcButton({calcLabel, posY, posX, equationState, updateEquation})
+export function CalcButton({calcLabel, borderRadii, equationState, updateEquation})
 {
     const buttonLabel = useRef(calcLabel);
     return (
         <button 
             className={styles.calcButton} 
             type="button" 
-            style={{top: posY, left: posX}}>
+            style={{
+                borderTopLeftRadius: borderRadii[0],
+                borderTopRightRadius: borderRadii[1],
+                borderBottomLeftRadius: borderRadii[2],
+                borderBottomRightRadius: borderRadii[3]
+            }}>
         {buttonLabel.current}
         </button>
     )

@@ -5,7 +5,7 @@ import { CalcButton } from './CalcButton'
 export default function App() {
   return (
     <>
-      <table>
+      <table id="calc-button-table">
         <tr>
           <td><CalcButton calcLabel="1" borderRadii={[0, 0, 0, 0]}/></td>
           <td><CalcButton calcLabel="2" borderRadii={[0, 0, 0, 0]}/></td>

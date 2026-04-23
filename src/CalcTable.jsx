@@ -13,6 +13,9 @@ export default function CalcTable() {
       <table className={styles.calcTable}>
         <tbody>
           <tr>
+            <td><CalcButton calcLabel="0" borderRadii={[0, 0, 0, 0]}/></td>
+          </tr>
+          <tr>
             <td><CalcButton calcLabel="1" borderRadii={[0, 0, 0, 0]}/></td>
             <td><CalcButton calcLabel="2" borderRadii={[0, 0, 0, 0]}/></td>
             <td><CalcButton calcLabel="3" borderRadii={[0, 0, 0, 0]}/></td>

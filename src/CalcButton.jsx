@@ -11,9 +11,24 @@ import styles from "./CalcButton.module.css";
  * @param {string} props.action What action should button do. (append, clear, calculate)
  * @returns 
  */
-export function CalcButton({calcLabel, borderRadii, equationState, updateEquation, action})
+export function CalcButton({calcLabel, borderRadii, equationState, updateEquation, action = "append"})
 {
     const buttonLabel = useRef(calcLabel);
+    
+    // Select button function.
+    let buttonFunc;
+    switch (action)
+    {
+        case "append":
+            buttonFunc = appendEquation;
+            break;
+        case "clear":
+            buttonFunc = clearEquation;
+            break;
+        default:
+            break;
+    }
+
     return (
         <button 
             className={styles.calcButton} 
@@ -23,7 +38,9 @@ export function CalcButton({calcLabel, borderRadii, equationState, updateEquatio
                 borderTopRightRadius: borderRadii[1],
                 borderBottomLeftRadius: borderRadii[2],
                 borderBottomRightRadius: borderRadii[3]
-            }}>
+            }}
+            onClick={() => buttonFunc(calcLabel, equationState, updateEquation)}
+            >
         {buttonLabel.current}
         </button>
     )
@@ -46,7 +63,7 @@ function appendEquation(label, equationState, updateEquation)
  * 
  * @param {Dispatch<SetStateAction<string>} updateEquation Function to update equation string.
  */
-function clearEquation(updateEquation)
+function clearEquation(_label, _equationState, updateEquation)
 {
     updateEquation("");
 }

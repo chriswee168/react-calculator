@@ -8,9 +8,10 @@ import styles from "./CalcButton.module.css";
  * @param {Array<string>} props.borderRadii Indicate radius of corners.
  * @param {string} props.equationState String containing equation.
  * @param {Dispatch<SetStateAction<string>} props.updateEquation Function to update equation string.
+ * @param {string} props.action What action should button do. (append, clear, calculate)
  * @returns 
  */
-export function CalcButton({calcLabel, borderRadii, equationState, updateEquation})
+export function CalcButton({calcLabel, borderRadii, equationState, updateEquation, action})
 {
     const buttonLabel = useRef(calcLabel);
     return (

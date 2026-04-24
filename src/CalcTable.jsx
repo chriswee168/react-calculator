@@ -13,9 +13,6 @@ export default function CalcTable() {
       <table className={styles.calcTable}>
         <tbody>
           <tr>
-            <td><CalcButton calcLabel="0" borderRadii={[0, 0, 0, 0]}/></td>
-          </tr>
-          <tr>
             <td><CalcButton calcLabel="1" borderRadii={[0, 0, 0, 0]}/></td>
             <td><CalcButton calcLabel="2" borderRadii={[0, 0, 0, 0]}/></td>
             <td><CalcButton calcLabel="3" borderRadii={[0, 0, 0, 0]}/></td>
@@ -29,6 +26,10 @@ export default function CalcTable() {
             <td><CalcButton calcLabel="7" borderRadii={[0, 0, 0, 0]}/></td>
             <td><CalcButton calcLabel="8" borderRadii={[0, 0, 0, 0]}/></td>
             <td><CalcButton calcLabel="9" borderRadii={[0, 0, 0, 0]}/></td>
+          </tr>
+          <tr>
+            <td />
+            <td><CalcButton calcLabel="0" borderRadii={[0, 0, 0, 0]}/></td>
           </tr>
         </tbody>
       </table>

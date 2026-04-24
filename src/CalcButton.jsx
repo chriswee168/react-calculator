@@ -28,3 +28,25 @@ export function CalcButton({calcLabel, borderRadii, equationState, updateEquatio
         </button>
     )
 }
+
+/**
+ * Function to append label to equation.
+ * 
+ * @param {string} label Calculator label.
+ * @param {string} equationState String containing equation.
+ * @param {Dispatch<SetStateAction<string>} updateEquation Function to update equation string.
+ */
+function appendEquation(label, equationState, updateEquation)
+{
+    updateEquation(equationState + label);
+}
+
+/**
+ * Function to clear equation.
+ * 
+ * @param {Dispatch<SetStateAction<string>} updateEquation Function to update equation string.
+ */
+function clearEquation(updateEquation)
+{
+    updateEquation("");
+}

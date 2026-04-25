@@ -11,7 +11,10 @@ import styles from "./CalcButton.module.css";
  * @param {string} props.action What action should button do. (append, clear, calculate)
  * @returns 
  */
-export function CalcButton({calcLabel, borderRadii, equationState, updateEquation, action = "append"})
+export function CalcButton({
+    calcLabel, equationState, updateEquation, 
+    borderRadii = [0, 0, 0, 0], action = "append"
+})
 {
     const buttonLabel = useRef(calcLabel);
     

@@ -11,38 +11,40 @@ import styles from './CalcTable.module.css'
  * @returns CalcTable component.
  */
 export default function CalcTable({equationState, updateEquation}) {
-  
-  // Row labels for calculator buttons.
   const rowLabels = [
-    ['1', '2', '3', '+'], 
-    ['4', '5', '6', '-'], 
-    ['7', '8', '9', '*'], 
-    ['(', '0', ')', '/']
+    ['1', '2', '3'], 
+    ['4', '5', '6'], 
+    ['7', '8', '9'], 
   ];
 
   return (
     <>
       <table className={styles.calcTable}>
         <tbody>
-          {
-            rowLabels.map((row) => (
-              <tr>
-                {
-                  row.map((label) => (
-                    <td>
-                      <CalcButton 
-                        calcLabel={label} 
-                        borderRadii={[0, 0, 0, 0]} 
-                        equationState={equationState} 
-                        updateEquation={updateEquation}
-                      />
-                    </td>
-                  ))
-                }
-              </tr>
-            ))
-          }
-
+          <tr>
+            <td><CalcButton calcLabel="1" borderRadii={[20, 0, 0, 0]}/></td>
+            <td><CalcButton calcLabel="2"/></td>
+            <td><CalcButton calcLabel="3"/></td>
+            <td><CalcButton calcLabel="+" borderRadii={[0, 20, 0, 0]}/></td>
+          </tr>
+          <tr>
+            <td><CalcButton calcLabel="4"/></td>
+            <td><CalcButton calcLabel="5"/></td>
+            <td><CalcButton calcLabel="6"/></td>
+            <td><CalcButton calcLabel="-"/></td>
+          </tr>
+          <tr>
+            <td><CalcButton calcLabel="7"/></td>
+            <td><CalcButton calcLabel="8"/></td>
+            <td><CalcButton calcLabel="9"/></td>
+            <td><CalcButton calcLabel="*"/></td>
+          </tr>
+          <tr>
+            <td><CalcButton calcLabel="(" borderRadii={[0, 0, 20, 0]}/></td>
+            <td><CalcButton calcLabel="0"/></td>
+            <td><CalcButton calcLabel=")"/></td>
+            <td><CalcButton calcLabel="/" borderRadii={[0, 0, 0, 20]}/></td>
+          </tr>
         </tbody>
       </table>
     </>

@@ -22,28 +22,28 @@ export default function CalcTable({equationState, updateEquation}) {
       <table className={styles.calcTable}>
         <tbody>
           <tr>
-            <td><CalcButton calcLabel="1" borderRadii={[20, 0, 0, 0]}/></td>
-            <td><CalcButton calcLabel="2"/></td>
-            <td><CalcButton calcLabel="3"/></td>
-            <td><CalcButton calcLabel="+" borderRadii={[0, 20, 0, 0]}/></td>
+            <td><CalcButton calcLabel="1" borderRadii={[20, 0, 0, 0]} equationState={equationState} updateEquation={updateEquation}/></td>
+            <td><CalcButton calcLabel="2" equationState={equationState} updateEquation={updateEquation} /></td>
+            <td><CalcButton calcLabel="3" equationState={equationState} updateEquation={updateEquation} /></td>
+            <td><CalcButton calcLabel="+" borderRadii={[0, 20, 0, 0]} equationState={equationState} updateEquation={updateEquation} /></td>
           </tr>
           <tr>
-            <td><CalcButton calcLabel="4"/></td>
-            <td><CalcButton calcLabel="5"/></td>
-            <td><CalcButton calcLabel="6"/></td>
-            <td><CalcButton calcLabel="-"/></td>
+            <td><CalcButton calcLabel="4" equationState={equationState} updateEquation={updateEquation} /></td>
+            <td><CalcButton calcLabel="5" equationState={equationState} updateEquation={updateEquation} /></td>
+            <td><CalcButton calcLabel="6" equationState={equationState} updateEquation={updateEquation} /></td>
+            <td><CalcButton calcLabel="-" equationState={equationState} updateEquation={updateEquation} /></td>
           </tr>
           <tr>
-            <td><CalcButton calcLabel="7"/></td>
-            <td><CalcButton calcLabel="8"/></td>
-            <td><CalcButton calcLabel="9"/></td>
-            <td><CalcButton calcLabel="*"/></td>
+            <td><CalcButton calcLabel="7" equationState={equationState} updateEquation={updateEquation} /></td>
+            <td><CalcButton calcLabel="8" equationState={equationState} updateEquation={updateEquation} /></td>
+            <td><CalcButton calcLabel="9" equationState={equationState} updateEquation={updateEquation} /></td>
+            <td><CalcButton calcLabel="*" equationState={equationState} updateEquation={updateEquation} /></td>
           </tr>
           <tr>
-            <td><CalcButton calcLabel="(" borderRadii={[0, 0, 20, 0]}/></td>
-            <td><CalcButton calcLabel="0"/></td>
-            <td><CalcButton calcLabel=")"/></td>
-            <td><CalcButton calcLabel="/" borderRadii={[0, 0, 0, 20]}/></td>
+            <td><CalcButton calcLabel="(" borderRadii={[0, 0, 20, 0]} equationState={equationState} updateEquation={updateEquation} /></td>
+            <td><CalcButton calcLabel="0" equationState={equationState} updateEquation={updateEquation} /></td>
+            <td><CalcButton calcLabel=")" equationState={equationState} updateEquation={updateEquation} /></td>
+            <td><CalcButton calcLabel="/" borderRadii={[0, 0, 0, 20]} equationState={equationState} updateEquation={updateEquation} /></td>
           </tr>
         </tbody>
       </table>

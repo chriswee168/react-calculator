@@ -5,9 +5,12 @@ import styles from './CalcTable.module.css'
 /**
  * Component for table containing calculator buttons.
  * 
+ * @param {Object} props
+ * @param {string} props.equationState String containing equation.
+ * @param {Dispatch<SetStateAction<string>} props.updateEquation Function to update equation string.
  * @returns CalcTable component.
  */
-export default function CalcTable() {
+export default function CalcTable({equationState, updateEquation}) {
   return (
     <>
       <table className={styles.calcTable}>

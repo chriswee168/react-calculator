@@ -14,6 +14,7 @@ export function EquationWindow({
 {
     return (
         <div
+            className={styles.outer}
             style={{
                 borderTopLeftRadius: borderRadii[0],
                 borderTopRightRadius: borderRadii[1],

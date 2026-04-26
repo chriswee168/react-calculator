@@ -10,7 +10,7 @@ export default function App() {
 
   return (
     <>
-      <CalcTable />
+      <CalcTable equationState={equation} updateEquation={updateEquation}/>
     </>
   )
 }

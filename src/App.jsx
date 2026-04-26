@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import './App.css'
-import { CalcButton } from './CalcButton'
 import CalcTable from './CalcTable'
+import { EquationWindow } from './EquationWindow';
 
 export default function App() {
 
@@ -10,6 +10,7 @@ export default function App() {
 
   return (
     <>
+      <EquationWindow equationState={equation} borderRadii={[10, 10, 10, 10]}/>
       <CalcTable equationState={equation} updateEquation={updateEquation}/>
     </>
   )

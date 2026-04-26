@@ -6,7 +6,13 @@
     border-width: 1%;
     border-style: solid;
     border-color: transparent;
-    text-align: right;
-    line-height: 10vh;
+    text-align: left;
     position: relative;
+}
+
+.inner
+{
+    position: relative;
+    height: 50%;
+    top: 20%;
 }

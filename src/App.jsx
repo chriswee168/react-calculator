@@ -9,7 +9,7 @@ export default function App() {
   const [equation, updateEquation] = useState("");
 
   return (
-    <div className={styles.wrapperBack}>
+    <div className={styles.appWrapper}>
       <div className={styles.mainWrapper}>
         <EquationWindow equationState={equation} borderRadii={[10, 10, 10, 10]}/>
         <CalcTable equationState={equation} updateEquation={updateEquation}/>

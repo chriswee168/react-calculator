@@ -22,7 +22,7 @@ export function EquationWindow({
                 borderBottomRightRadius: borderRadii[3]
             }}
             >
-            <p>{equationState}</p>
+            <p className={styles.inner}>{equationState}</p>
         </div>
     )
 }

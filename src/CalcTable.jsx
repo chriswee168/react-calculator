@@ -22,10 +22,10 @@ export default function CalcTable({equationState, updateEquation}) {
       <table className={styles.calcTable}>
         <tbody>
           <tr>
-            <td><CalcButton calcLabel="1" borderRadii={[20, 0, 0, 0]} equationState={equationState} updateEquation={updateEquation}/></td>
+            <td><CalcButton calcLabel="1" equationState={equationState} updateEquation={updateEquation}/></td>
             <td><CalcButton calcLabel="2" equationState={equationState} updateEquation={updateEquation} /></td>
             <td><CalcButton calcLabel="3" equationState={equationState} updateEquation={updateEquation} /></td>
-            <td><CalcButton calcLabel="+" borderRadii={[0, 20, 0, 0]} equationState={equationState} updateEquation={updateEquation} /></td>
+            <td><CalcButton calcLabel="+" equationState={equationState} updateEquation={updateEquation} /></td>
           </tr>
           <tr>
             <td><CalcButton calcLabel="4" equationState={equationState} updateEquation={updateEquation} /></td>

@@ -10,10 +10,8 @@ export default function App() {
 
   return (
     <div className={styles.appWrapper}>
-      <div className={styles.mainWrapper}>
-        <EquationWindow equationState={equation} borderRadii={[10, 10, 10, 10]}/>
-        <CalcTable equationState={equation} updateEquation={updateEquation}/>
-      </div>
+      <EquationWindow equationState={equation} borderRadii={[10, 10, 10, 10]}/>
+      <CalcTable equationState={equation} updateEquation={updateEquation}/>
     </div>
   )
 }

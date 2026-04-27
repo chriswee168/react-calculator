@@ -1,0 +1,18 @@
+.outer
+{
+    background-color: rgb(61, 61, 61);
+    width: 23vw;
+    height: 10vh;
+    border-width: 1%;
+    border-style: solid;
+    border-color: transparent;
+    text-align: left;
+    position: relative;
+}
+
+.inner
+{
+    position: relative;
+    height: 50%;
+    top: 20%;
+}

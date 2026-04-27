@@ -1,6 +1,8 @@
 .appWrapper
 {
     position: relative;
+    width: 25vw;
+    height: 60vh;
 }
 
 .mainWrapper

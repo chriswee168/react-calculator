@@ -21,6 +21,7 @@
     line-height: 140%;
     overflow-x: scroll;
     overflow-y: hidden;
+    white-space: nowrap;
 
     &::-webkit-scrollbar
     {

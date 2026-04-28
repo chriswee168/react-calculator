@@ -1,7 +1,7 @@
 import { useState } from 'react'
-import './App.css'
-import { CalcButton } from './CalcButton'
+import styles from './App.module.css'
 import CalcTable from './CalcTable'
+import { EquationWindow } from './EquationWindow';
 
 export default function App() {
 
@@ -9,8 +9,9 @@ export default function App() {
   const [equation, updateEquation] = useState("");
 
   return (
-    <>
-      <CalcTable />
-    </>
+    <div className={styles.appWrapper}>
+      <EquationWindow equationState={equation} borderRadii={[10, 10, 0, 0]}/>
+      <CalcTable equationState={equation} updateEquation={updateEquation}/>
+    </div>
   )
 }

@@ -2,6 +2,9 @@
 .calcButton
 {
     color: white;
+    border-width: 2px;
+    border-style: solid;
+    border-color: rgb(152, 99, 0);
     background-color: orange;
     width: 106%;
     height: 106%;

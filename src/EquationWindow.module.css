@@ -23,6 +23,8 @@
     overflow-x: scroll;
     overflow-y: hidden;
     white-space: nowrap;
+    width: 96%;
+    left: 2%;
 
     &::-webkit-scrollbar
     {

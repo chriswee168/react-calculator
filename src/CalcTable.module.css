@@ -1,0 +1,7 @@
+/* Rules for calculator button table. */
+.calcTable
+{
+    position: relative;
+    width: 98%;
+    height: 81%;
+}

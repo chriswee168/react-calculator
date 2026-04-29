@@ -2,8 +2,23 @@
 .calcButton
 {
     color: white;
+    border-width: 2px;
+    border-style: solid;
+    border-color: rgb(152, 99, 0);
     background-color: orange;
-    width: 10%;
-    height: 10%;
+    width: 106%;
+    height: 106%;
     position: relative;
+    font-size: 250%;
+    transition: 0.25s;
+
+    &:hover
+    {
+        background-color: rgb(204, 133, 0);
+    }
+
+    &:active
+    {
+        background-color: rgb(152, 99, 0);
+    }
 }

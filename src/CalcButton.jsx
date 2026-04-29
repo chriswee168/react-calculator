@@ -3,22 +3,70 @@ import styles from "./CalcButton.module.css";
 /**
  * Component for calculator button.
  * 
- * @param {string} calcLabel Label for this button.
- * @param {number} posY Button Y position.
- * @param {number} posX Button X position.
- * @param {string} equationState String containing equation.
- * @param {Dispatch<SetStateAction<string>} updateEquation Function to update equation string.
+ * @param {Object} props
+ * @param {string} props.calcLabel Label for this button.
+ * @param {Array<string>} props.borderRadii Indicate radius of corners.
+ * @param {string} props.equationState String containing equation.
+ * @param {Dispatch<SetStateAction<string>} props.updateEquation Function to update equation string.
+ * @param {string} props.action What action should button do. (append, clear, calculate)
  * @returns 
  */
-export function CalcButton({calcLabel, posY, posX, equationState, updateEquation})
+export function CalcButton({
+    calcLabel, equationState, updateEquation, 
+    borderRadii = [0, 0, 0, 0], action = "append"
+})
 {
     const buttonLabel = useRef(calcLabel);
+    
+    // Select button function.
+    let buttonFunc;
+    switch (action)
+    {
+        case "append":
+            buttonFunc = appendEquation;
+            break;
+        case "clear":
+            buttonFunc = clearEquation;
+            break;
+        default:
+            break;
+    }
+
     return (
         <button 
             className={styles.calcButton} 
             type="button" 
-            style={{top: posY, left: posX}}>
+            style={{
+                borderTopLeftRadius: borderRadii[0],
+                borderTopRightRadius: borderRadii[1],
+                borderBottomLeftRadius: borderRadii[2],
+                borderBottomRightRadius: borderRadii[3]
+            }}
+            onClick={() => buttonFunc(calcLabel, equationState, updateEquation)}
+            >
         {buttonLabel.current}
         </button>
     )
+}
+
+/**
+ * Function to append label to equation.
+ * 
+ * @param {string} label Calculator label.
+ * @param {string} equationState String containing equation.
+ * @param {Dispatch<SetStateAction<string>} updateEquation Function to update equation string.
+ */
+function appendEquation(label, equationState, updateEquation)
+{
+    updateEquation(equationState + label);
+}
+
+/**
+ * Function to clear equation.
+ * 
+ * @param {Dispatch<SetStateAction<string>} updateEquation Function to update equation string.
+ */
+function clearEquation(_label, _equationState, updateEquation)
+{
+    updateEquation("");
 }

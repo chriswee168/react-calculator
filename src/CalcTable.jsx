@@ -40,10 +40,19 @@ export default function CalcTable({equationState, updateEquation}) {
             <td><CalcButton calcLabel="*" equationState={equationState} updateEquation={updateEquation} /></td>
           </tr>
           <tr>
-            <td><CalcButton calcLabel="(" borderRadii={[0, 0, 20, 0]} equationState={equationState} updateEquation={updateEquation} /></td>
+            <td><CalcButton calcLabel="(" equationState={equationState} updateEquation={updateEquation} /></td>
             <td><CalcButton calcLabel="0" equationState={equationState} updateEquation={updateEquation} /></td>
             <td><CalcButton calcLabel=")" equationState={equationState} updateEquation={updateEquation} /></td>
-            <td><CalcButton calcLabel="/" borderRadii={[0, 0, 0, 20]} equationState={equationState} updateEquation={updateEquation} /></td>
+            <td><CalcButton calcLabel="/" equationState={equationState} updateEquation={updateEquation} /></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <table className={styles.actionTable}>
+        <tbody>
+          <tr>
+            <td><CalcButton calcLabel="CE" borderRadii={[0, 0, 20, 0]} equationState={equationState} updateEquation={updateEquation} action='clear'/></td>
+            <td><CalcButton calcLabel="=" borderRadii={[0, 0, 0, 20]} equationState={equationState} updateEquation={updateEquation}/></td>
           </tr>
         </tbody>
       </table>

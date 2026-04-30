@@ -1,7 +1,9 @@
 .appWrapper
 {
-    position: relative;
-    width: 20vw;
-    height: 60vh;
-    
+    position: absolute;
+    width: 350px;
+    height: 450px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }

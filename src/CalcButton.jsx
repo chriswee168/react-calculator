@@ -70,3 +70,14 @@ function clearEquation(_label, _equationState, updateEquation)
 {
     updateEquation("");
 }
+
+/**
+ * Function to calculate result of equation.
+ * 
+ * @param {string} equationState 
+ * @param {Dispatch<SetStateAction<string>} updateEquation 
+ */
+function calcEquation(_label, equationState, updateEquation)
+{
+    
+}

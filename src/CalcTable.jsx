@@ -52,7 +52,7 @@ export default function CalcTable({equationState, updateEquation}) {
         <tbody>
           <tr>
             <td><CalcButton calcLabel="CE" borderRadii={[0, 0, 20, 0]} equationState={equationState} updateEquation={updateEquation} action='clear'/></td>
-            <td><CalcButton calcLabel="=" borderRadii={[0, 0, 0, 20]} equationState={equationState} updateEquation={updateEquation}/></td>
+            <td><CalcButton calcLabel="=" borderRadii={[0, 0, 0, 20]} equationState={equationState} updateEquation={updateEquation} action='calculate'/></td>
           </tr>
         </tbody>
       </table>

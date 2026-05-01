@@ -3,7 +3,8 @@
  * 
  * @param {string} eqString Equation as string.
  */
-export function calcEquation(eqString)
+export function calculate(eqString)
 {
-    
+    // Mutable list to store characters from eqString.
+    const charStack = [];
 }

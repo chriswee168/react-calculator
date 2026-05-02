@@ -3,13 +3,14 @@
  * 
  * @param {string} string0 Number 1 string
  * @param {string} opChar Operator
- * @param {string} string2 Number 2
+ * @param {string} string2 Number 2 string
+ * @returns Calculation result as string.
  */
 export function opCalc(string0, opChar, string2)
 {
     const num1 = Number(string0);
     const num2 = Number(string2);
-    const result;
+    let result;
 
     switch (opChar)
     {
@@ -31,5 +32,5 @@ export function opCalc(string0, opChar, string2)
             break;
     }
 
-    return result;
+    return result.toString();
 }

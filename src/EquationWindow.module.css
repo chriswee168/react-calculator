@@ -66,20 +66,20 @@
 {
     position: relative;
     height: 90%;
-    bottom: 40%;
-    font-size: 220%;
+    bottom: 60%;
+    font-size: 150%;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: white;
-    line-height: 150%;
+    line-height: 100%;
     overflow-x: scroll;
     overflow-y: hidden;
     white-space: nowrap;
-    width: 96%;
-    left: 2%;
+    width: 94%;
+    left: 3%;
 
     &::-webkit-scrollbar
     {
-        height: 7px;
+        height: 3px;
     }
     &::-webkit-scrollbar-track
     {

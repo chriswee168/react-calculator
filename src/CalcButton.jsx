@@ -1,5 +1,6 @@
 import { useRef, useState } from 'react';
 import styles from "./CalcButton.module.css";
+import { calculate } from './calc-funcs/calculate-eq';
 /**
  * Component for calculator button.
  * 
@@ -28,6 +29,8 @@ export function CalcButton({
         case "clear":
             buttonFunc = clearEquation;
             break;
+        case "calculate":
+            buttonFunc = calcEquation;
         default:
             break;
     }
@@ -69,4 +72,15 @@ function appendEquation(label, equationState, updateEquation)
 function clearEquation(_label, _equationState, updateEquation)
 {
     updateEquation("");
+}
+
+/**
+ * Function to calculate result of equation.
+ * 
+ * @param {string} equationState 
+ * @param {Dispatch<SetStateAction<string>} updateEquation 
+ */
+function calcEquation(_label, equationState, updateEquation)
+{
+    calculate(equationState);
 }

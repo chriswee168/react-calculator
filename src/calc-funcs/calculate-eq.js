@@ -33,7 +33,15 @@ export function calculate(eqString)
         }
         else
         {
-            charStack.push(eqString[i])
+            // Join characters of numbers with more than one digit.
+            if (!isNaN(charStack.at(-1)) && !isNaN(eqString[i]))
+            {
+                charStack[charStack.length - 1] += eqString[i];
+            }
+            else
+            {
+                charStack.push(eqString[i]);
+            }
         }
 
         console.log(charStack);

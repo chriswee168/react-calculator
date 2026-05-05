@@ -2,6 +2,15 @@
 .calcTable
 {
     position: relative;
-    width: 35vh;
-    height: 45vh;
+    width: 98%;
+    height: 81%;
+}
+
+/* Rules for action table. */
+.actionTable
+{
+    position: relative;
+    width: 97.5%;
+    height: 10%;
+    bottom: 0.4%;
 }

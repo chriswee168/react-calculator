@@ -34,8 +34,11 @@ export function calculate(eqString)
         }
         else
         {
-            // Join characters of numbers with more than one digit.
-            if (!isNaN(charStack.at(-1)) && !isNaN(eqString[i]))
+            // Join characters of numbers with more than one digit or decimal point.
+            if ((!isNaN(charStack.at(-1)) && !isNaN(eqString[i])) || 
+                charStack.at(-1) == '.' || 
+                eqString[i] == '.'
+            )
             {
                 charStack[charStack.length - 1] += eqString[i];
             }

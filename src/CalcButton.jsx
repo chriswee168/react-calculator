@@ -86,5 +86,6 @@ function clearEquation(_label, _equationState, updateEquation, _eqHistory, _upda
  */
 function calcEquation(_label, equationState, updateEquation, eqHistory, updateEqHistory)
 {
-    calculate(equationState);
+    updateEqHistory(equationState);
+    updateEquation(calculate(equationState));
 }

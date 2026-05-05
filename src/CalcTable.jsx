@@ -48,7 +48,7 @@ export default function CalcTable({equationState, updateEquation, eqHistory, upd
         <tbody>
           <tr>
             <td><CalcButton 
-              calcLabel="CE" borderRadii={[0, 0, 20, 0]} 
+              calcLabel="C" borderRadii={[0, 0, 20, 0]} 
               equationState={equationState} updateEquation={updateEquation} 
               eqHistory={eqHistory} updateEqHistory={updateEqHistory} 
               action='clear'/></td>

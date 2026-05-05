@@ -24,7 +24,10 @@ export default function App() {
         innerStyle={equationStyles.innerMain} 
         borderRadii={[20, 20, 0, 0]}
       />
-      <CalcTable equationState={equation} updateEquation={updateEquation}/>
+      <CalcTable 
+        equationState={equation} updateEquation={updateEquation} 
+        eqHistory={eqHistory} updateEqHistory={updateEqHistory}
+      />
     </div>
   )
 }

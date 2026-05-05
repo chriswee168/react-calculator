@@ -8,9 +8,11 @@ import styles from './CalcTable.module.css'
  * @param {Object} props
  * @param {string} props.equationState String containing equation.
  * @param {Dispatch<SetStateAction<string>} props.updateEquation Function to update equation string.
+ * @param {string} eqHistory History equation string.
+ * @param {Dispatch<SetStateAction<string>} updateEqHistory Function to update equation history string.
  * @returns CalcTable component.
  */
-export default function CalcTable({equationState, updateEquation}) {
+export default function CalcTable({equationState, updateEquation, eqHistory, updateEqHistory}) {
   const rowLabels = [
     ['1', '2', '3'], 
     ['4', '5', '6'], 
@@ -52,7 +54,13 @@ export default function CalcTable({equationState, updateEquation}) {
         <tbody>
           <tr>
             <td><CalcButton calcLabel="CE" borderRadii={[0, 0, 20, 0]} equationState={equationState} updateEquation={updateEquation} action='clear'/></td>
-            <td><CalcButton calcLabel="=" borderRadii={[0, 0, 0, 20]} equationState={equationState} updateEquation={updateEquation} action='calculate'/></td>
+            <td><CalcButton 
+              calcLabel="=" 
+              borderRadii={[0, 0, 0, 20]} 
+              equationState={equationState} updateEquation={updateEquation} 
+              eqHistory={eqHistory} updateEqHistory={updateEqHistory} 
+              action='calculate'/>
+            </td>
           </tr>
         </tbody>
       </table>

@@ -4,6 +4,7 @@ import { opCalc } from "./op-calc";
  * Main function to process and calculate the equation.
  * 
  * @param {string} eqString Equation as string.
+ * @returns Result as string.
  */
 export function calculate(eqString)
 {
@@ -46,4 +47,6 @@ export function calculate(eqString)
 
         console.log(charStack);
     }
+
+    return charStack[0];
 }

@@ -70,10 +70,12 @@ function appendEquation(label, equationState, updateEquation, _eqHistory, _updat
  * Function to clear equation.
  * 
  * @param {Dispatch<SetStateAction<string>} updateEquation Function to update equation string.
+ * @param {Dispatch<SetStateAction<string>} updateEqHistory Function to update equation history string.
  */
-function clearEquation(_label, _equationState, updateEquation, _eqHistory, _updateEqHistory)
+function clearEquation(_label, _equationState, updateEquation, _eqHistory, updateEqHistory)
 {
     updateEquation("");
+    updateEqHistory("");
 }
 
 /**
@@ -86,5 +88,6 @@ function clearEquation(_label, _equationState, updateEquation, _eqHistory, _upda
  */
 function calcEquation(_label, equationState, updateEquation, eqHistory, updateEqHistory)
 {
-    calculate(equationState);
+    updateEqHistory(equationState);
+    updateEquation(calculate(equationState));
 }

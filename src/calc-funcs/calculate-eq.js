@@ -4,6 +4,7 @@ import { opCalc } from "./op-calc";
  * Main function to process and calculate the equation.
  * 
  * @param {string} eqString Equation as string.
+ * @returns Result as string.
  */
 export function calculate(eqString)
 {
@@ -33,8 +34,11 @@ export function calculate(eqString)
         }
         else
         {
-            // Join characters of numbers with more than one digit.
-            if (!isNaN(charStack.at(-1)) && !isNaN(eqString[i]))
+            // Join characters of numbers with more than one digit or decimal point.
+            if ((!isNaN(charStack.at(-1)) && !isNaN(eqString[i])) || 
+                charStack.at(-1) == '.' || 
+                eqString[i] == '.'
+            )
             {
                 charStack[charStack.length - 1] += eqString[i];
             }
@@ -46,4 +50,6 @@ export function calculate(eqString)
 
         console.log(charStack);
     }
+
+    return charStack[0];
 }

@@ -53,10 +53,13 @@ export default function CalcTable({equationState, updateEquation, eqHistory, upd
       <table className={styles.actionTable}>
         <tbody>
           <tr>
-            <td><CalcButton calcLabel="CE" borderRadii={[0, 0, 20, 0]} equationState={equationState} updateEquation={updateEquation} action='clear'/></td>
             <td><CalcButton 
-              calcLabel="=" 
-              borderRadii={[0, 0, 0, 20]} 
+              calcLabel="CE" borderRadii={[0, 0, 20, 0]} 
+              equationState={equationState} updateEquation={updateEquation} 
+              eqHistory={eqHistory} updateEqHistory={updateEqHistory} 
+              action='clear'/></td>
+            <td><CalcButton 
+              calcLabel="=" borderRadii={[0, 0, 0, 20]} 
               equationState={equationState} updateEquation={updateEquation} 
               eqHistory={eqHistory} updateEqHistory={updateEqHistory} 
               action='calculate'/>

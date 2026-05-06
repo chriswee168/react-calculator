@@ -9,7 +9,7 @@ import { opCalc } from "./op-calc";
 export function calculate(eqString)
 {
     // Mutable list to store characters from eqString.
-    const charStack = [];
+    const stringStack = [];
     let result;
 
     // For each character in equation.
@@ -21,35 +21,35 @@ export function calculate(eqString)
             // off the stack and push result as string.
             do
             {
-                result = opCalc(charStack.at(-3), charStack.at(-2), charStack.at(-1));
+                result = opCalc(stringStack.at(-3), stringStack.at(-2), stringStack.at(-1));
                 for (let j = 0; j < 3; j++)
                 {
-                    charStack.pop();
+                    stringStack.pop();
                 }
-                charStack.push(result);
+                stringStack.push(result);
             }
             // Stop and remove open bracket when encountered.
-            while (charStack.at(-2) != '(');
-            charStack.splice(-2, 1);
+            while (stringStack.at(-2) != '(');
+            stringStack.splice(-2, 1);
         }
         else
         {
             // Join characters of numbers with more than one digit or decimal point.
-            if ((!isNaN(charStack.at(-1)) && !isNaN(eqString[i])) || 
-                charStack.at(-1) == '.' || 
+            if ((!isNaN(stringStack.at(-1)) && !isNaN(eqString[i])) || 
+                stringStack.at(-1) == '.' || 
                 eqString[i] == '.'
             )
             {
-                charStack[charStack.length - 1] += eqString[i];
+                stringStack[stringStack.length - 1] += eqString[i];
             }
             else
             {
-                charStack.push(eqString[i]);
+                stringStack.push(eqString[i]);
             }
         }
 
-        console.log(charStack);
+        console.log(stringStack);
     }
 
-    return charStack[0];
+    return stringStack[0];
 }

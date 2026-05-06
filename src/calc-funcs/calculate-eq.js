@@ -8,8 +8,8 @@ import { opCalc } from "./op-calc";
  */
 export function calculate(eqString)
 {
-    // Mutable list to store characters from eqString.
-    const stringStack = [];
+    const stringStack = []; // Stack to store strings from eqString.
+    const tempStack = []; // Stack to store strings in reverse order.
     let result;
 
     // For each character in equation.
@@ -17,11 +17,15 @@ export function calculate(eqString)
     {
         if (eqString[i] == ')')
         {
-            // Calculate result of (num1, operator, num2), pop the three strings
-            // off the stack and push result as string.
+            // Pop every string off the main stack and push them to the temporary stack
+            // until an open bracket is read and removed.
             do
             {
-                result = opCalc(stringStack.at(-3), stringStack.at(-2), stringStack.at(-1));
+                tempStack.push(stringStack.pop());
+            }
+            while (stringStack.at(-1) != '(');
+            stringStack.pop();
+
                 for (let j = 0; j < 3; j++)
                 {
                     stringStack.pop();

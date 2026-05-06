@@ -26,19 +26,24 @@ export function calculate(eqString)
             while (stringStack.at(-1) != '(');
             stringStack.pop();
 
+            // Perform calculations on temporary stack in reverse iteration.
+            do
+            {
+                result = opCalc(tempStack.at(-1), tempStack.at(-2), tempStack.at(-3));
                 for (let j = 0; j < 3; j++)
                 {
-                    stringStack.pop();
+                    tempStack.pop();
                 }
-                stringStack.push(result);
+                tempStack.push(result);
             }
-            // Stop and remove open bracket when encountered.
-            while (stringStack.at(-2) != '(');
-            stringStack.splice(-2, 1);
+            // Add final result to the main stack and clear temporary stack.
+            while (tempStack.length > 1);
+            stringStack.push(tempStack[0]);
+            tempStack.length = 0;
         }
         else
         {
-            // Join characters of numbers with more than one digit or decimal point.
+            // Join strings of numbers with more than one digit or decimal point.
             if ((!isNaN(stringStack.at(-1)) && !isNaN(eqString[i])) || 
                 stringStack.at(-1) == '.' || 
                 eqString[i] == '.'

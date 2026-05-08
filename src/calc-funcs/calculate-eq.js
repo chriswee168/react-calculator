@@ -38,22 +38,25 @@ export function calculate(eqString)
             // Perform calculations on temporary stack in reverse iteration.
             do
             {
-                // Select pair of numbers in string format with highest order operation.
-                // (e.g. multiplication comes before addition.)
-                let idx0 = 0, idx1 = 1, idx2 = 2;
-                let bestOpVal = opMap.get(tempStack[idx1]);
-                for (let j = 0; j < tempStack.length - 1; j += 2)
+                if (tempStack.length >= 3) // Allow redundant brackets.
                 {
-                    if ((opMap.get(tempStack[j + 1])) >= bestOpVal)
+                    // Select pair of numbers in string format with highest order operation.
+                    // (e.g. multiplication comes before addition.)
+                    let idx0 = 0, idx1 = 1, idx2 = 2;
+                    let bestOpVal = opMap.get(tempStack[idx1]);
+                    for (let j = 0; j < tempStack.length - 1; j += 2)
                     {
-                        idx0 = j + 2; idx1 = j + 1; idx2 = j;
-                        bestOpVal = opMap.get(tempStack[j + 1]);
+                        if ((opMap.get(tempStack[j + 1])) >= bestOpVal)
+                        {
+                            idx0 = j + 2; idx1 = j + 1; idx2 = j;
+                            bestOpVal = opMap.get(tempStack[j + 1]);
+                        }
                     }
+                    console.log(tempStack, idx0, idx1, idx2);
+                    const result = opCalc(tempStack[idx0], tempStack[idx1], tempStack[idx2]);
+                    tempStack.splice(idx2, 3, result);
+                    console.log(tempStack, idx0, idx1, idx2);
                 }
-                console.log(tempStack, idx0, idx1, idx2);
-                const result = opCalc(tempStack[idx0], tempStack[idx1], tempStack[idx2]);
-                tempStack.splice(idx2, 3, result);
-                console.log(tempStack, idx0, idx1, idx2);
             }
             // Add final result to the main stack and clear temporary stack.
             while (tempStack.length > 1);

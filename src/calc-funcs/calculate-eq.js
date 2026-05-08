@@ -18,6 +18,9 @@ export function calculate(eqString)
     opMap.set('*', 1);
     opMap.set('/', 1);
 
+    // Add outermost brackets.
+    eqString = '(' + eqString + ')';
+
     // For each character in equation.
     for (let i = 0; i < eqString.length; i++)
     {

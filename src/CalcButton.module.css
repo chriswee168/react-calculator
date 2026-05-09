@@ -11,6 +11,7 @@
     position: relative;
     font-size: 250%;
     transition: 0.25s;
+    user-select: none;
 
     &:hover
     {

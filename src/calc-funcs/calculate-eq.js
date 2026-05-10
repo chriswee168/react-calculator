@@ -4,46 +4,83 @@ import { opCalc } from "./op-calc";
  * Main function to process and calculate the equation.
  * 
  * @param {string} eqString Equation as string.
+ * @returns Result as string.
  */
 export function calculate(eqString)
 {
-    // Mutable list to store characters from eqString.
-    const charStack = [];
-    let result;
+    const stringStack = []; // Stack to store strings from eqString.
+    const tempStack = []; // Stack to store strings in reverse order.
+
+    // Used to indicate which operators take precedence over others.
+    const opMap = new Map();
+    opMap.set('+', 0);
+    opMap.set('-', 0);
+    opMap.set('*', 1);
+    opMap.set('/', 1);
+
+    // Add outermost brackets.
+    eqString = '(' + eqString + ')';
 
     // For each character in equation.
     for (let i = 0; i < eqString.length; i++)
     {
         if (eqString[i] == ')')
         {
-            // Calculate result of (num1, operator, num2), pop the three strings
-            // off the stack and push result as string.
+            // Pop every string off the main stack and push them to the temporary stack
+            // until an open bracket is read and removed.
             do
             {
-                result = opCalc(charStack.at(-3), charStack.at(-2), charStack.at(-1));
-                for (let j = 0; j < 3; j++)
-                {
-                    charStack.pop();
-                }
-                charStack.push(result);
+                tempStack.push(stringStack.pop());
             }
-            // Stop and remove open bracket when encountered.
-            while (charStack.at(-2) != '(');
-            charStack.splice(-2, 1);
+            while (stringStack.at(-1) != '(');
+            stringStack.pop();
+
+            // Perform calculations on temporary stack in reverse iteration.
+            do
+            {
+                if (tempStack.length >= 3) // Allow redundant brackets.
+                {
+                    // Select pair of numbers in string format with highest order operation.
+                    // (e.g. multiplication comes before addition.)
+                    let idx0 = 0, idx1 = 1, idx2 = 2;
+                    let bestOpVal = opMap.get(tempStack[idx1]);
+                    for (let j = 0; j < tempStack.length - 1; j += 2)
+                    {
+                        if ((opMap.get(tempStack[j + 1])) >= bestOpVal)
+                        {
+                            idx0 = j + 2; idx1 = j + 1; idx2 = j;
+                            bestOpVal = opMap.get(tempStack[j + 1]);
+                        }
+                    }
+                    console.log(tempStack, idx0, idx1, idx2);
+                    const result = opCalc(tempStack[idx0], tempStack[idx1], tempStack[idx2]);
+                    tempStack.splice(idx2, 3, result);
+                    console.log(tempStack, idx0, idx1, idx2);
+                }
+            }
+            // Add final result to the main stack and clear temporary stack.
+            while (tempStack.length > 1);
+            stringStack.push(tempStack[0]);
+            tempStack.length = 0;
         }
         else
         {
-            // Join characters of numbers with more than one digit.
-            if (!isNaN(charStack.at(-1)) && !isNaN(eqString[i]))
+            // Join strings of numbers with more than one digit or decimal point.
+            if ((!isNaN(stringStack.at(-1)) && !isNaN(eqString[i])) || 
+                stringStack.at(-1) == '.' || 
+                eqString[i] == '.'
+            )
             {
-                charStack[charStack.length - 1] += eqString[i];
+                stringStack[stringStack.length - 1] += eqString[i];
             }
             else
             {
-                charStack.push(eqString[i]);
+                stringStack.push(eqString[i]);
             }
         }
 
-        console.log(charStack);
+        console.log(stringStack);
     }
+
+    return stringStack[0];
 }

@@ -26,7 +26,7 @@ export default function App() {
       />
       <CalcTable 
         equationState={equation} updateEquation={updateEquation} 
-        eqHistory={eqHistory} updateEqHistory={updateEqHistory}
+        updateEqHistory={updateEqHistory}
       />
     </div>
   )

@@ -8,11 +8,10 @@ import styles from './CalcTable.module.css'
  * @param {Object} props
  * @param {string} props.equationState String containing equation.
  * @param {Dispatch<SetStateAction<string>} props.updateEquation Function to update equation string.
- * @param {string} eqHistory History equation string.
- * @param {Dispatch<SetStateAction<string>} updateEqHistory Function to update equation history string.
+ * @param {Dispatch<SetStateAction<string>} props.updateEqHistory Function to update equation history string.
  * @returns CalcTable component.
  */
-export default function CalcTable({equationState, updateEquation, eqHistory, updateEqHistory}) {
+export default function CalcTable({equationState, updateEquation, updateEqHistory}) {
   const rowLabels = [
     ['1', '2', '3', '+'], 
     ['4', '5', '6', '-'], 
@@ -50,7 +49,7 @@ export default function CalcTable({equationState, updateEquation, eqHistory, upd
             <td><CalcButton 
               calcLabel="C" borderRadii={[0, 0, 20, 0]} 
               equationState={equationState} updateEquation={updateEquation} 
-              eqHistory={eqHistory} updateEqHistory={updateEqHistory} 
+              updateEqHistory={updateEqHistory} 
               action='clear'/>
             </td>
             <td>
@@ -59,7 +58,7 @@ export default function CalcTable({equationState, updateEquation, eqHistory, upd
             <td><CalcButton 
               calcLabel="=" borderRadii={[0, 0, 0, 20]} 
               equationState={equationState} updateEquation={updateEquation} 
-              eqHistory={eqHistory} updateEqHistory={updateEqHistory} 
+              updateEqHistory={updateEqHistory} 
               action='calculate'/>
             </td>
           </tr>

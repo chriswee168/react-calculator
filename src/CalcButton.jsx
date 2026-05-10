@@ -9,13 +9,12 @@ import { calculate } from './calc-funcs/calculate-eq';
  * @param {Array<string>} props.borderRadii Indicate radius of corners.
  * @param {string} props.equationState String containing equation.
  * @param {Dispatch<SetStateAction<string>} props.updateEquation Function to update equation string.
- * @param {string} eqHistory History equation string.
- * @param {Dispatch<SetStateAction<string>} updateEqHistory Function to update equation history string.
+ * @param {Dispatch<SetStateAction<string>} props.updateEqHistory Function to update equation history string.
  * @param {string} props.action What action should button do. (append, clear, calculate)
  * @returns 
  */
 export function CalcButton({
-    calcLabel, equationState, updateEquation, eqHistory, updateEqHistory,
+    calcLabel, equationState, updateEquation, updateEqHistory,
     borderRadii = [0, 0, 0, 0], action = "append"
 })
 {
@@ -47,7 +46,7 @@ export function CalcButton({
                 borderBottomLeftRadius: borderRadii[2],
                 borderBottomRightRadius: borderRadii[3]
             }}
-            onClick={() => buttonFunc(calcLabel, equationState, updateEquation, eqHistory, updateEqHistory)}
+            onClick={() => buttonFunc(calcLabel, equationState, updateEquation, updateEqHistory)}
             >
         {buttonLabel.current}
         </button>
@@ -61,7 +60,7 @@ export function CalcButton({
  * @param {string} equationState String containing equation.
  * @param {Dispatch<SetStateAction<string>} updateEquation Function to update equation string.
  */
-function appendEquation(label, equationState, updateEquation, _eqHistory, _updateEqHistory)
+function appendEquation(label, equationState, updateEquation, _updateEqHistory)
 {
     updateEquation(equationState + label);
 }
@@ -72,7 +71,7 @@ function appendEquation(label, equationState, updateEquation, _eqHistory, _updat
  * @param {Dispatch<SetStateAction<string>} updateEquation Function to update equation string.
  * @param {Dispatch<SetStateAction<string>} updateEqHistory Function to update equation history string.
  */
-function clearEquation(_label, _equationState, updateEquation, _eqHistory, updateEqHistory)
+function clearEquation(_label, _equationState, updateEquation, updateEqHistory)
 {
     updateEquation("");
     updateEqHistory("");
@@ -83,10 +82,9 @@ function clearEquation(_label, _equationState, updateEquation, _eqHistory, updat
  * 
  * @param {string} equationState Equation string.
  * @param {Dispatch<SetStateAction<string>} updateEquation Function to update equation string.
- * @param {string} eqHistory History equation string.
  * @param {Dispatch<SetStateAction<string>} updateEqHistory Function to update equation history string.
  */
-function calcEquation(_label, equationState, updateEquation, eqHistory, updateEqHistory)
+function calcEquation(_label, equationState, updateEquation, updateEqHistory)
 {
     updateEqHistory(equationState);
     updateEquation(calculate(equationState));

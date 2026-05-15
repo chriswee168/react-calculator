@@ -4,14 +4,14 @@ import { calculate } from './calc-funcs/calculate-eq';
 /**
  * Component for calculator button.
  * 
- * @param {Object} props
+ * @param {Object} props Props object.
  * @param {string} props.calcLabel Label for this button.
  * @param {Array<string>} props.borderRadii Indicate radius of corners.
  * @param {string} props.equationState String containing equation.
  * @param {Dispatch<SetStateAction<string>} props.updateEquation Function to update equation string.
  * @param {Dispatch<SetStateAction<string>} props.updateEqHistory Function to update equation history string.
  * @param {string} props.action What action should button do. (append, clear, calculate)
- * @returns 
+ * @returns Calculator button component.
  */
 export function CalcButton({
     calcLabel, equationState, updateEquation, updateEqHistory,

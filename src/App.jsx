@@ -4,6 +4,11 @@ import CalcTable from './CalcTable'
 import { EquationWindow } from './EquationWindow';
 import equationStyles from "./EquationWindow.module.css";
 
+/**
+ * Main App component to store equation window, state and calculator table.
+ * 
+ * @returns App component.
+ */
 export default function App() {
 
   // Main equation string.

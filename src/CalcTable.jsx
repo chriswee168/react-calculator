@@ -21,11 +21,14 @@ export default function CalcTable({equationState, updateEquation, updateEqHistor
 
   return (
     <>
+      {/* Contain all digit, operator and bracket buttons. */}
       <table className={styles.calcTable}>
         <tbody>
+          {/* Loop rows. */}
           {
             rowLabels.map((row) => (
               <tr>
+                {/* Loop columns. */}
                 {
                   row.map((label) => (
                     <td>
@@ -42,7 +45,8 @@ export default function CalcTable({equationState, updateEquation, updateEqHistor
           }
         </tbody>
       </table>
-
+      
+      {/* Table to contain 'C', '.' and '=' buttons. */}
       <table className={styles.actionTable}>
         <tbody>
           <tr>

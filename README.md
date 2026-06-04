@@ -1,6 +1,6 @@
 # React Calculator
 
-A simple UI calculator created using the React framework.
+A simple React calculator that can perform basic mathematical calculations adhering to the BODMAS rule.
 
 ## Table of Contents
 1. [Dependencies](#dependencies)

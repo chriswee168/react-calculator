@@ -1,0 +1,25 @@
+/* Styles for calculator buttons. */
+.calcButton
+{
+    color: black;
+    border-width: 2px;
+    border-style: solid;
+    border-color: rgb(152, 99, 0);
+    background-color: orange;
+    width: 106%;
+    height: 106%;
+    position: relative;
+    font-size: 250%;
+    transition: 0.25s;
+    user-select: none;
+
+    &:hover
+    {
+        background-color: rgb(204, 133, 0);
+    }
+
+    &:active
+    {
+        background-color: rgb(152, 99, 0);
+    }
+}

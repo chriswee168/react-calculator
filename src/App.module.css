@@ -1,0 +1,10 @@
+/* Rules for App component. */
+.appWrapper
+{
+    position: absolute;
+    width: 350px;
+    height: 450px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -60%);
+}
